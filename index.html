@@ -63,7 +63,7 @@
       
   
      
-          <button id="nav" type="button" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-sm">Reset</button>
+          <button id="nav" type="button" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-sm">Werk</button>
       
   
  
@@ -448,6 +448,7 @@
            
           };
           
+       var marker = new google.maps.Marker;
           
        if(navigator.geolocation)  //if you can find the location then...
        {   
@@ -457,10 +458,8 @@
                     geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); //sets current position
                
                 
-                    var marker = new google.maps.Marker({  //creates marker at current position
-                    position: geolocate,
-                    map: map
-                    });
+                    marker.setPosition(geolocate);
+                    marker.setMap(map);
                     map.setCenter(geolocate); //centers the google map on current position
                 },function(){
             handleLocationError(true,marker,map.getCenter());
